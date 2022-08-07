@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_professor")
-public class ProfessorModel implements Serializable {
+@Table(name = "tb_turma")
+public class Turma implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -15,10 +15,11 @@ public class ProfessorModel implements Serializable {
     private Long codigo;
 
     @Column
-    private String nome;
+    private String descricao;
 
-    @Column
-    private String especialidade;
+    @ManyToOne
+    private ProfessorModel professorModel;
+
 
     public Long getCodigo() {
         return codigo;
@@ -27,26 +28,26 @@ public class ProfessorModel implements Serializable {
         this.codigo = codigo;
     }
 
-    public String getNome() {
-        return nome;
+    public String getDescricao() {
+        return descricao;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getEspecialidade() {
-        return especialidade;
+    public ProfessorModel getProfessorModel() {
+        return professorModel;
     }
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    public void setProfessorModel(ProfessorModel professorModel) {
+        this.professorModel = professorModel;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProfessorModel professorModel = (ProfessorModel) o;
-        return codigo.equals(professorModel.codigo);
+        Turma turma = (Turma) o;
+        return codigo.equals(turma.codigo);
     }
 
     @Override

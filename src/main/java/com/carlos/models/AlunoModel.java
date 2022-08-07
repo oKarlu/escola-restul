@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@
-public class Aluno implements Serializable {
+@Table(name = "tb_aluno")
+public class AlunoModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,8 +37,8 @@ public class Aluno implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Aluno aluno = (Aluno) o;
-        return codigo.equals(aluno.codigo);
+        AlunoModel alunoModel = (AlunoModel) o;
+        return codigo.equals(alunoModel.codigo);
     }
 
     @Override
